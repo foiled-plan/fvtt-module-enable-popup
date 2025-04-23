@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FoundryVTT Popup</title>
+    <link
+      href="/css/foundry2.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <style>
+      @import "/fonts/fontawesome/css/all.min.css" layer(variables);
+    </style>
+    <style>
+      .application {
+        position: static !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-height: unset !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .application .window-content {
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="/modules/fvtt-module-enable-popup/popup.js" type="module" defer></script>
+  </body>
+</html>

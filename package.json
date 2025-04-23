@@ -1,0 +1,36 @@
+{
+  "name": "fvtt-module-enable-popup",
+  "version": "1.0.0",
+  "description": "FoundryVTT module for enabling opening most application windows as popups",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foiled-plan/fvtt-module-enable-popup.git"
+  },
+  "keywords": [
+    "FoundryVTT",
+    "FVTT",
+    "module",
+    "popup",
+    "popups"
+  ],
+  "author": "Foiled",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/foiled-plan/fvtt-module-enable-popup/issues"
+  },
+  "homepage": "https://github.com/foiled-plan/fvtt-module-enable-popup#readme",
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "fvtt-types": "github:League-of-Foundry-Developers/foundry-vtt-types#v13-main",
+    "typescript": "^5.0.0",
+    "vite": "^6.3.2",
+    "vite-plugin-checker": "^0.9.1",
+    "vite-plugin-static-copy": "^2.3.1"
+  }
+}
