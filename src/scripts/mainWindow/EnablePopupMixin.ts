@@ -89,9 +89,9 @@ export function EnablePopupMixin<TBase extends typeof AppV2>(BaseClass: TBase) {
       if (typeof options === "object") {
         mergedOptions = options;
       } else if (typeof options === "boolean") {
-        mergedOptions = Object.assign(_options ?? {}, { force: mergedOptions });
+        mergedOptions = Object.assign(_options ?? {}, { force: options });
       }
-
+      
       const popupClickContext =
         PopupClickContextManager.instance.currentContext;
       if (
