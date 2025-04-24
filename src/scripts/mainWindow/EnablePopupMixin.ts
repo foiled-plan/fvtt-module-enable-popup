@@ -1,5 +1,5 @@
 import { PopupClickContextManager } from "./PopupClickContextManager";
-import { PopupWindowCache } from "./PopupCache";
+import { PopupWindowCache } from "./PopupWindowCache";
 import { RenderContextManager } from "./RenderContextManager";
 import {
   copyAttributes,
@@ -113,7 +113,7 @@ export function EnablePopupMixin<TBase extends typeof AppV2>(BaseClass: TBase) {
           mergedOptions
         );
       }
-      return RenderContextManager.instance.runInContext(this.id, () =>
+      return RenderContextManager.instance.trackContext(this.id, () =>
         super.render(mergedOptions)
       );
     }
