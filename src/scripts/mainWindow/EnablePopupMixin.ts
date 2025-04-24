@@ -3,6 +3,7 @@ import { PopupWindowCache } from "./PopupCache";
 import { RenderContextManager } from "./RenderContextManager";
 import {
   copyAttributes,
+  copyElements,
   getPopupDimensions,
   logError,
   openPopup,
@@ -170,6 +171,8 @@ export function EnablePopupMixin<TBase extends typeof AppV2>(BaseClass: TBase) {
         "style",
       ]);
       copyAttributes(document.body, popup.document.body, ["class", "style"]);
+
+      copyElements(document.head.querySelectorAll('style'), popup.document.head);
 
       // Use `capture: true` to ensure the click event is captured before any other handlers
       // ensuring that the click context is already set in any other click handler.

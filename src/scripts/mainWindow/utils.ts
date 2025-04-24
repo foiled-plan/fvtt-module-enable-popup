@@ -36,12 +36,32 @@ export function getPopupDimensions(
 export function copyAttributes(
   source: HTMLElement,
   target: HTMLElement,
-  attributes: string[]
+  attributeNamesToCopy: string[]
 ): void {
-  attributes.forEach((attr) => {
+  attributeNamesToCopy.forEach((attr) => {
+    source.attributes
     const value = source.getAttribute(attr);
     if (value) {
       target.setAttribute(attr, value);
+    }
+  });
+}
+
+export function copyElements(sourcesToCopy: NodeList, target: HTMLElement): void {
+  const targetDocument = target.ownerDocument;
+  if (!targetDocument) {
+    logError("copyElements: targetDocument is null", target);
+    return;
+  }
+  sourcesToCopy.forEach((sourceElement) => {
+    if (!(sourceElement instanceof HTMLElement)) {
+      logWarning(
+        "copyElements: sourceElement is not an HTMLElement",
+        sourceElement
+      );
+    } else {
+      const adopted = targetDocument.importNode(sourceElement, true);
+      target.appendChild(adopted);
     }
   });
 }
