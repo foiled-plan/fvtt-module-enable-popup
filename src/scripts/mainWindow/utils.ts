@@ -98,6 +98,9 @@ export async function openPopup(
         "DOMContentLoaded",
         () => {
           clearTimeout(timeoutId);
+          console.log(
+            `[${id}] Popup loaded successfully`,
+          );
           resolve(popup);
         },
         { once: true }
@@ -118,4 +121,19 @@ export function logWarning(message: string, ...args: unknown[]): void {
 
 export function logError(message: string, ...args: unknown[]): void {
   console.error(`enable-popup | ${message}`, ...args);
+}
+
+/**
+ * A function to reevaluate a class in the current context.
+ * This is useful for classes that are declared in the main window
+ * and need to be used in the popup window in a way that we can't use
+ * the main window's class directly.
+ * 
+ * @param Class - The class to reevaluate in the current context
+ * @returns - The reevaluated class
+ */
+export function reevaluateClass<T extends AnyConstructor>(Class: T): T {
+  const classStr = Class.toString();
+  const factory = eval("() =>" + classStr);
+  return factory() as T;
 }
